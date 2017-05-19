@@ -1,0 +1,102 @@
+.sketch-block{
+	border: 1px solid #ececec;
+}
+.panel-tools{
+	overflow: visible;
+	margin-bottom: 5px;
+	padding-bottom: 5px;
+	height: 50px;
+}
+
+.panel-color, .panel-size, .panel-dimension, .panel-eraser{
+	overflow: visible;
+	border: 1px solid #ddd;
+	float: left;
+	
+	margin-right: 5px;
+	padding: 5px;
+	border-radius: 6px;
+	background-clip: padding-box;
+	
+  -webkit-box-shadow: 2px 2px 4px 0px #eee;
+          box-shadow: 2px 2px 4px 0px #eee;
+	
+}
+.panel-eraser{
+	float: right !important;
+}
+.panel-color h2, .panel-size h2, .panel-dimension h2, .panel-eraser h2{
+	text-transform: uppercase;
+	color: grey;
+	font-family: Verdana;
+	font-weight: bold;
+	padding-bottom: 3px;
+}
+
+.panel-eraser a{
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: right;
+	
+/* 	border: 1px solid #eee; */
+/* 	border-radius: 5px; */
+/* 	background-clip: padding-box; */
+	
+	line-height: 20px;
+	text-align: center;
+	margin-left: 5px;
+	cursor: pointer !important;
+}
+.panel-eraser a img{
+	cursor: pointer !important;
+}
+
+.panel-color a[data-color]{
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+	
+	border: 1px solid #eee;
+	border-radius: 5px;
+	background-clip: padding-box;
+	
+	cursor: pointer !important;
+}
+
+.panel-size a[data-size]{
+	width: 20px;
+	height: 20px;
+	display: block;
+	float: left;
+	
+	border: 1px solid #eee;
+	border-radius: 5px;
+	background-clip: padding-box;
+	
+	color: grey;
+	font-family: Verdana;
+	font-weight: bold;
+	line-height: 20px;
+	text-align: center;
+	
+	cursor: pointer !important;
+}
+
+.panel-dimension select{
+	border: 1px solid #eee;
+	border-radius: 5px;
+	background-clip: padding-box;
+	color: grey;
+	font-family: Verdana;
+	padding: 1px;
+	margin-top: 1px;
+}
+
+/* KolorPicker fixed */
+input.kolorPicker{
+	margin: 0px 0px 2px 0px !important;
+	border: 1px solid #eee !important;
+	color: grey;
+}
