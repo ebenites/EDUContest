@@ -8,9 +8,16 @@ namespace EDUContest.Controllers
 {
     public class TukuyController : Controller
     {
-        // GET: BestPractice
+
         public ActionResult Index()
         {
+            if (Request.HttpMethod == "POST")
+            {
+
+                TempData["Success"] = "El proceso de registro ha finalizado.";
+
+                return RedirectToAction("Confirmar");
+            }
 
             ViewBag.condiciones = new SelectList(new List<SelectListItem>{
                 new SelectListItem { Value = "001", Text = "Nombrado" },
@@ -20,9 +27,10 @@ namespace EDUContest.Controllers
             return View();
         }
         
-        public ActionResult Registrar()
+        public ActionResult Confirmar()
         {
             return View();
         }
+
     }
 }

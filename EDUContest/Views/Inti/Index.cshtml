@@ -1,0 +1,527 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("INICIO", "Index", "Home")</li>
+    <li class="active">FICHA DE INSCRIPCIÓN DEL PROYECTO (INTI)</li>
+</ol>
+
+@using (Html.BeginForm("Index", "Inti", FormMethod.Post, new { id = "form-registrar", @class = "" }))
+{
+
+    <div class="page-header">
+        <h3>FICHA DE INSCRIPCIÓN DEL PROYECTO (INTI)</h3>
+        @{ViewBag.Title = "FICHA DE INSCRIPCIÓN DEL PROYECTO (INTI)";}
+    </div>
+    
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">I.	DATOS GENERALES DE LA INSTITUCIÓN EDUCATIVA QUE INSCRIBE EL PROYECTO</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-8 col-sm-8 form-group">
+                    <label for="nombreints">Nombre de la II.EE</label>
+                    @Html.TextBox("nombreints", null, new { @class = "form-control", maxlength = "100" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="codmodular">Código modular de la II.EE</label>
+                    @Html.TextBox("codmodular", null, new { @class = "form-control", @readonly = "" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="tipoinst">Tipo de II.EE</label>
+                    @Html.TextBox("tipoinst", null, new { @class = "form-control", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="dre">DRE</label>
+                    @Html.TextBox("dre", null, new { @class = "form-control", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="ugel">UGEL</label>
+                    @Html.TextBox("ugel", null, new { @class = "form-control", @readonly = "" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="region">Región</label>
+                    @Html.TextBox("region", null, new { @class = "form-control", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="provincia">Provincia</label>
+                    @Html.TextBox("provincia", null, new { @class = "form-control", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="distrito">Distrito</label>
+                    @Html.TextBox("distrito", null, new { @class = "form-control", @readonly = "" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 form-group">
+                    <label for="poblado">Centro poblado</label>
+                    @Html.TextBox("poblado", null, new { @class = "form-control", maxlength = "200" })
+                </div>
+                <div class="col-md-6 col-sm-6 form-group">
+                    <label for="direccion">Dirección principal</label>
+                    @Html.TextBox("direccion", null, new { @class = "form-control", maxlength = "200" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="telefonoinst">Teléfono institucional</label>
+                    @Html.TextBox("telefonoinst", null, new { @class = "form-control", maxlength = "20" })
+                </div>
+                <div class="col-md-8 col-sm-8 form-group">
+                    <label for="correoinst">Correo electrónico</label>
+                    @Html.TextBox("correoinst", null, new { @class = "form-control", maxlength = "100", type = "email" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">II. DATOS DEL DIRECTOR(A)</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="dapepaterno">Apellido paterno</label>
+                    @Html.TextBox("dapepaterno", null, new { @class = "form-control", maxlength = "50" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="dapematerno">Apellido materno</label>
+                    @Html.TextBox("dapematerno", null, new { @class = "form-control", maxlength = "50" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="dnombres">Nombres</label>
+                    @Html.TextBox("dnombres", null, new { @class = "form-control", maxlength = "50" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="ddni">DNI</label>
+                    @Html.TextBox("ddni", null, new { @class = "form-control", maxlength = "10" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="dcelular">N° Celular</label>
+                    @Html.TextBox("dcelular", null, new { @class = "form-control", maxlength = "20" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="dcorreo">Correo electrónico</label>
+                    @Html.TextBox("dcorreo", null, new { @class = "form-control", maxlength = "100", type = "email" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">III. DATOS DEL DOCENTE ASESOR(A)</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="apepaterno">Apellido paterno</label>
+                    @Html.TextBox("apepaterno", null, new { @class = "form-control", maxlength = "50", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="apematerno">Apellido materno</label>
+                    @Html.TextBox("apematerno", null, new { @class = "form-control", maxlength = "50", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="nombres">Nombres</label>
+                    @Html.TextBox("nombres", null, new { @class = "form-control", maxlength = "50", @readonly = "" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="dni">DNI</label>
+                    @Html.TextBox("dni", null, new { @class = "form-control", maxlength = "10", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="celular">N° Celular</label>
+                    @Html.TextBox("celular", null, new { @class = "form-control", maxlength = "20", @readonly = "" })
+                </div>
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="correo">Correo electrónico</label>
+                    @Html.TextBox("correo", null, new { @class = "form-control", maxlength = "100", type = "email", @readonly = "" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 col-sm-6 form-group">
+                    <label for="profesion">Profesión</label>
+                    @Html.TextBox("profesion", null, new { @class = "form-control", maxlength = "100", @readonly = "" })
+                </div>
+                <div class="col-md-6 col-sm-6 form-group">
+                    <label for="especialidad">Especialidad o carrera con mayor carga horaria</label>
+                    @Html.TextBox("especialidad", null, new { @class = "form-control", maxlength = "100" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-4 col-sm-4 form-group">
+                    <label for="condicion">Condición laboral</label>
+                    @Html.DropDownList("condicion", ViewBag.condiciones as SelectList, "-- Seleccione una condición --", new { @class = "form-control" })
+                </div>
+                <div class="col-md-8 col-sm-8 form-group">
+                    <label for="unidad">Unidad didáctica que enseña</label>
+                    @Html.TextBox("unidad", null, new { @class = "form-control", maxlength = "100" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">IV.	DATOS DE LOS ESTUDIANTES AUTORES(AS)</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12" id="students-container">
+                    
+                    <div class="panel panel-default panel-student">
+                        <div class="panel-heading clearfix">
+                            <h3 class="panel-title pull-left" style="padding-top:4px;">Información de Estudiante</h3>
+                            <a href="javascript:void(0)" onclick="eliminar(this)" class="btn btn-danger btn-xs pull-right" title="Eliminar bloque de información de estudiante"><i class="glyphicon glyphicon-trash"></i> Eliminar</a>
+                        </div>
+                        <div class="panel-body">
+
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 form-group">
+                                    <label for="eapepaterno">Apellido paterno</label>
+                                    @Html.TextBox("eapepaterno", null, new { @class = "form-control", maxlength = "50" })
+                                </div>
+                                <div class="col-md-4 col-sm-4 form-group">
+                                    <label for="eapematerno">Apellido materno</label>
+                                    @Html.TextBox("eapematerno", null, new { @class = "form-control", maxlength = "50" })
+                                </div>
+                                <div class="col-md-4 col-sm-4 form-group">
+                                    <label for="enombres">Nombres</label>
+                                    @Html.TextBox("enombres", null, new { @class = "form-control", maxlength = "50" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 form-group">
+                                    <label for="edni">DNI</label>
+                                    @Html.TextBox("edni", null, new { @class = "form-control", maxlength = "10" })
+                                </div>
+                                <div class="col-md-4 col-sm-4 form-group">
+                                    <label for="ecelular">N° Celular</label>
+                                    @Html.TextBox("ecelular", null, new { @class = "form-control", maxlength = "20" })
+                                </div>
+                                <div class="col-md-4 col-sm-4 form-group">
+                                    <label for="esexo">Sexo</label>
+                                    <div class="radio">
+                                        <label class="radio-inline">
+                                            @Html.RadioButton("esexo", "M") Masculino
+                                        </label>
+                                        <label class="radio-inline">
+                                            @Html.RadioButton("esexo", "F") Femenino
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 col-sm-4 form-group">
+                                    <label for="ecorreo">Correo electrónico</label>
+                                    @Html.TextBox("ecorreo", null, new { @class = "form-control", maxlength = "100", type = "email" })
+                                </div>
+                                <div class="col-md-8 col-sm-8 form-group">
+                                    <label for="eespecialidad">Carrera que estudian</label>
+                                    @Html.TextBox("eespecialidad", null, new { @class = "form-control", maxlength = "100" })
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+ 
+        </div>
+        <div class="panel-footer clearfix">
+            <a href="javascript:void(0)" onclick="agregar()" class="btn btn-success btn-sm pull-right" title="Añadir nuevo bloque de información de estudiante"><i class="glyphicon glyphicon-plus"></i> Añadir estudiante</a>
+        </div>
+    </div>
+
+
+    <div class="page-header">
+        <h2>PERFIL DEL PROYECTO</h2>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">A. INFORMACIÓN GENERAL</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ititulo">A.1. Título del Proyecto</label>
+                    @Html.TextBox("ititulo", null, new { @class = "form-control", maxlength = "200" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="iarea">A.2. Área Estratégica de Desarrollo Prioritario</label>
+                    @Html.TextBox("iarea", null, new { @class = "form-control", maxlength = "200" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="iactividad">A.3. Actividad económica en la que se aplicará la innovación o investigación aplicada</label>
+                    @Html.TextBox("iactividad", null, new { @class = "form-control", maxlength = "200" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ilocalizacion">A.4. Localización del Proyecto (donde se llevará a cabo el proyecto)</label>
+                    @Html.TextBox("ilocalizacion", null, new { @class = "form-control", maxlength = "100" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">B.	DESCRIPCIÓN DE LA INNOVACIÓN O INVESTIGACIÓN APLICADA</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="iproblematica">XXX B.1. Problemática u oportunidad (max. 5000 caracteres)</label>
+                    @Html.TextArea("iproblematica", null, new { @class = "form-control ckeditor", maxlength = "5000", style = "height: 100px;", placeholder = "Narración del aspecto que atiende la práctica: Puede ser un problema, una oportunidad a aprovechar, un aspecto a mejorar. Redacte de modo conciso y claro. Puede usar viñetas de ser necesario." })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="iobjetivos">B.2. Objetivos de la Buena Práctica (max. 600 caracteres por objetivo)</label>
+                    @Html.TextArea("iobjetivos", null, new { @class = "form-control ckeditor", maxlength = "600", style = "height: 100px;", placeholder = "Utilice verbos y puntualice cada uno de los objetivos de la práctica. Exponga al menos 3 objetivos." })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="itematica">B.3. Temática de la Buena Práctica (max. 1000 caracteres por objetivo)</label>
+                    @Html.TextArea("itematica", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Describa el área o temática en la que aporta la práctica por ejemplo en el desarrollo de capacidades técnicas que contribuyen a la concreción de las competencias de la carrera de Industrias alimentarias, habilidades técnico- productivas en el sector agropecuario, desarrollo de habilidades para las artes plásticas o competencias en el uso de TICs, procesos de mejora de gestión institucional y académica, etc." })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ihistorico">B.4. Histórico de la Buena Práctica (max. 1000 caracteres por objetivo)</label>
+                    @Html.TextArea("ihistorico", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Narre el punto de partida de la práctica y algunos hitos significativos." })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="imetodologia">B.5. Metodología de la Buena Práctica (max. 5000 caracteres)</label>
+                    @Html.TextArea("imetodologia", null, new { @class = "form-control ckeditor", maxlength = "5000", style = "height: 100px;", placeholder = "Describa las principales actividades de la práctica, especifique espacios, servicios, productos y actores involucrados. También puede usar tablas o diagramas que puedan ayudar a explicar." })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="imarcoref">B.6. Marco Referencial: principales conceptos que enmarca la buena práctica a realizar. (max. 5000 caracteres)</label>
+                    @Html.TextArea("imarcoref", null, new { @class = "form-control ckeditor", maxlength = "5000", style = "height: 100px;", placeholder = "Basándose en la literatura actualizada describa algunos aspectos conceptuales o de conocimientos, relacionados con la temática de la práctica, donde esta pueda aportar." })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">C.	LECCIONES APRENDIDAS</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-justify">
+                    <p>Trabaje esta información en una reunión donde puedan participar los diferentes actores involucrados. Luego sintetice y pase en limpio.</p>
+                    <p>Debe reconocer mínimo 3 lecciones aprendidas de la práctica pedagógica o de la gestión en los que más impactó la propuesta. Por ejemplo: logro de aprendizajes, gestión, empleabilidad, vinculación, generación de fondos, etc. Describa qué acciones de la práctica fueron las más efectivas y luego coloque cuales fueron los resultados. Finalmente, en interpretación puntualice qué aprendió en cada aspecto que le podría servir a otra entidad educativa a tomar en cuenta.</p>
+                    <p>Este apartado es el de mayor peso en la evaluación.</p>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion1">C.1.  Lección aprendida 1: Problemática u oportunidad de la Buena Práctica. (Calidad) (max. 1000 caracteres)</label>
+                    @Html.TextArea("ileccion1", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué aspectos nos propusimos mejorar?" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion2">C.2.  Lección aprendida 2: Acciones de la Buena Práctica (Vinculación) (max. 1000 caracteres))</label>
+                    @Html.TextArea("ileccion2", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué hicimos para mejorar este aspecto?" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion3">C.3.  Lección aprendida 3: Resultados (Impacto) (max. 1000 caracteres)</label>
+                    @Html.TextArea("ileccion3", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué logramos en cada aspecto?" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion4">C.4.  Lección aprendida 4: Interpretación (Calidad) (max. 1000 caracteres)</label>
+                    @Html.TextArea("ileccion4", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué aprendimos que quisiéramos compartir?" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">D. CONCLUSIONES Y RECOMENDACIONES</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="iconclusiones">Conclusiones y recomendaciones (max. 5000 caracteres)</label>
+                    @Html.TextArea("iconclusiones", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Describa los principales hallazgos y oportunidades de mejora." })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">E. REFERENCIAS</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ireferencias">Referencias</label>
+                    @Html.TextArea("ireferencias", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Colocar los autores citados en el Marco Referencial según los requerimientos de la APA. Ejemplo:<br/><u>Recurso físico</u><br/>SUAREZ, Daniel(2004) Manual para la Documentación Narrativa de Experiencias Pedagógicas.Buenos Aires: Laboratorio de Políticas Públicas.<br/><u>Recurso de internet</u><br/>JARA,O. (2014).Sistematización de Experiencias, investigación y evaluación: Aproximaciones desde tres ángulos.Recuperado de: http://educacionglobalresearch.net/wp-conte" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">F. FUENTES DE VERIFICACIÓN</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ifuentes">Fuentes de verificación</label>
+                    @Html.TextArea("ifuentes", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Adjuntar en el informe con un link, las evidencias que mejor representen a la buena práctica:<br/> <b>Evidencia 1:</b> Documento que evidencie el desarrollo de la buena práctica (convenios, actas, programación curricular, etc.)<br/> <b>Evidencia 2:</b> Registro fotográfico:  diez (10) fotografías como máximo<br/> <b>Evidencia 3:</b> Un (01) video de máximo 5 minutos, en formato MPG4, AVI " })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <input type="submit" name="guardar1" value="Guardar y Enviar" class="btn btn-primary" data-loading-text="Guardando..."/>
+                    <input type="submit" name="guardar2" value="Guardar como borrador" class="btn btn-primary" data-loading-text="Guardando..." />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}
+
+@section scripts {
+    <script type="text/javascript">
+        $(function () {
+
+            $('input[name="fnacimiento"]').datepicker({
+                format: "dd/mm/yyyy",
+                endDate: new Date(),
+                language: "es"
+            });
+
+            $("#form-programar").validate({
+                /*rules: {
+                    fecprogramada: "required",
+                    tecnico: "required"
+                },
+                messages: {
+                    fecprogramada: "Por favor ingrese la fecha de programación",
+                    tecnico: "Por favor asigne un técnico"
+                }*/
+            });
+
+        });
+        
+        CKEDITOR.config.toolbar = [
+            { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat'] },
+            //{ name: 'styles', items: ['FontSize'] },
+            //{ name: 'colors', items: ['TextColor'] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
+            { name: 'links', items: ['Link', 'Unlink'] },
+            { name: 'insert', items: ['Image', 'Embed', 'Table', 'HorizontalRule', 'sketch'] },
+            // 			'/',
+            { name: 'document', items: ['Source'] },
+        ];
+
+        function eliminar(e) {
+            var block = $(e).parent().parent();
+            if (block.parent().find('div.panel').length > 1) {
+                block.remove();
+            }
+        }
+
+        function agregar() {
+            var block = $('#students-container').find('div.panel').eq(0).clone();
+            $('#students-container').append(block);
+            block.find('input:text').val('');
+            block.find('input:radio').removeAttr('checked');
+        }
+
+    </script>
+}

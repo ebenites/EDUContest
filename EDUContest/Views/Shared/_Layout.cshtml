@@ -5,11 +5,59 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
-    @Styles.Render("~/Content/bootstrap")
-    @Styles.Render("~/Content/bootstrap-theme")
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/ckeditor-css")
+
+    <!-- fontawsome -->
+    <link href="@Url.Content("~/Content/font-awesome.min.css")" rel="stylesheet" />
+
+    <!-- jquery -->
+    <script src="@Url.Content("~/Scripts/jquery-1.10.2.min.js")"></script>
+
+    <!-- bootstrap -->
+    <link href="@Url.Content("~/Content/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/Content/bootstrap-flatly.min.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/bootstrap.min.js")"></script>
+    
+    <!-- Respond.js (for IE 6-8, and more) -->
+    <script src="@Url.Content("~/Scripts/respond.min.js")"></script>
+
+    <!-- jquery - form -->
+    <script src="@Url.Content("~/Scripts/jquery.form.min.js")"></script>
+
+    <!-- jquery - validate -->
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate-vsdoc.js")"></script>
+
+    <!-- jquery - bootbox -->
+    <script src="@Url.Content("~/Scripts/bootbox.min.js")"></script>
+
+    <!-- bootstrap - datepicker -->
+    <link href="@Url.Content("~/Content/bootstrap-datepicker3.min.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/moment-with-locales.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/bootstrap-datepicker-locales/bootstrap-datepicker.es.min.js")"></script>
+
+    <!-- bootstrap - switch -->
+    <link href="@Url.Content("~/Content/bootstrap-switch.min.css")" rel="stylesheet" />
+    <script src="@Url.Content("~/Scripts/bootstrap-switch.min.js")"></script>
+
+    <!-- jquery - spin -->
+    <script src="@Url.Content("~/Scripts/spin.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.spin.js")"></script>
+
+    <!-- ckeditor -->
+    <script src="@Url.Content("~/Scripts/ckeditor/ckeditor.js")"></script>
+    <script src="@Url.Content("~/Scripts/ckeditor/adapters/jquery.js")"></script>
+    <script src="@Url.Content("~/Scripts/ckeditor/config.js")"></script>
+
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/Content/site.css")" rel="stylesheet" />
+
+    @*Styles.Render("~/Content/css")*@
+
     @Scripts.Render("~/bundles/modernizr")
+
+    @RenderSection("scripts", required: false)
 </head>
 <body>
     <div class="navbar navbar-default navbar-fixed-top">
@@ -31,7 +79,32 @@
             </div>
         </div>
     </div>
-    <div class="container body-content">
+    <div class="container body-content" style="padding-top: 20px">
+
+    @{
+        string success = TempData["Success"] as string;
+        if (success != null)
+        {
+            <div class="alert alert-success alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                @success
+            </div>
+        }
+
+        string error = TempData["Error"] as string;
+        if (error != null)
+        {
+            <div class="alert alert-danger alert-dismissible fade in" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+                @error
+            </div>
+        }
+    }
+
         @RenderBody()
         <hr />
         <footer>
@@ -39,12 +112,5 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/jquery-plugins")
-    @Scripts.Render("~/bundles/ckeditor")
-    @Scripts.Render("~/bundles/ckeditor-plugins")
-    @RenderSection("scripts", required: false)
 </body>
 </html>

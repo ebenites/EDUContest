@@ -9,9 +9,9 @@ CKEDITOR.editorConfig = function( config ) {
 	config.language = 'es';
 	// config.uiColor = '#AADC6E';
 	
-    config.extraPlugins = 'confighelper,videodetector,sketch';
+    config.extraPlugins = 'confighelper,embed,sketch';
 	
-    config.removePlugins = 'iframe,elementspath';	// Problemas con vista previa vimeo: http://ckeditor.com/forums/CKEditor/Editing-iframe-preview
+    config.removePlugins = 'wordcount,elementspath';
     config.resize_enabled = false;
 	config.allowedContent = true;	// allow all html tags and attributes
 

@@ -2,12 +2,16 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<ol class="breadcrumb">
+    <li>@Html.ActionLink("INICIO", "Index", "Home")</li>
+    <li class="active">FICHA DE INSCRIPCIÓN DEL PROYECTO (INTI)</li>
+</ol>
 
-@using (Html.BeginForm("Register", "Tukuy", FormMethod.Post, new { id = "form-registrar", @class = "" }))
+@using (Html.BeginForm("Index", "Tukuy", FormMethod.Post, new { id = "form-registrar", @class = "" }))
 {
 
     <div class="page-header">
-        <h2>FICHA DE INSCRIPCIÓN DE LA BUENA PRÁCTICA (TUKUY)</h2>
+        <h3>FICHA DE INSCRIPCIÓN DE LA BUENA PRÁCTICA (TUKUY)</h3>
         @{ViewBag.Title = "FICHA DE INSCRIPCIÓN DE LA BUENA PRÁCTICA (TUKUY)";}
     </div>
 
@@ -90,8 +94,8 @@
                     @Html.TextBox("especialidad", null, new { @class = "form-control", maxlength = "100" })
                 </div>
                 <div class="col-md-4 col-sm-4 form-group">
-                    <label for="cargo">Años de servicio en educación técnica o artística</label>
-                    @Html.TextBox("cargo", null, new { @class = "form-control", type = "number", min = 0, max = 100 })
+                    <label for="anios">Años de servicio en educación técnica o artística</label>
+                    @Html.TextBox("anios", null, new { @class = "form-control", type = "number", min = 0, max = 100 })
                 </div>
             </div>
 
@@ -160,11 +164,11 @@
             <div class="row">
                 <div class="col-md-4 col-sm-4 form-group">
                     <label for="telefonoinst">Teléfono institucional</label>
-                    @Html.TextBox("telefonoinst", null, new { @class = "form-control", maxlength = "100" })
+                    @Html.TextBox("telefonoinst", null, new { @class = "form-control", maxlength = "20" })
                 </div>
                 <div class="col-md-8 col-sm-8 form-group">
                     <label for="correoinst">Correo electrónico</label>
-                    @Html.TextBox("correoinst", null, new { @class = "form-control", type = "email" })
+                    @Html.TextBox("correoinst", null, new { @class = "form-control", maxlength = "100", type = "email" })
                 </div>
             </div>
 
@@ -188,7 +192,7 @@
             <div class="row">
                 <div class="col-md-8 col-sm-8 form-group">
                     <label for="categoria">Categoría</label>
-                    @Html.DropDownList("categoria", new SelectList(new List<SelectListItem>{}), "-- Seleccione una opción --", new { @class = "form-control" })
+                    @Html.DropDownList("categoria", new SelectList(new List<SelectListItem> { }), "-- Seleccione una opción --", new { @class = "form-control" })
                 </div>
                 <div class="col-md-4 col-sm-4 form-group">
                     <label for="nbeneficiarios">Número de beneficiarios directos</label>
@@ -209,7 +213,6 @@
 
     <div class="page-header">
         <h2>INFORME DE LA BUENA PRÁCTICA</h2>
-        @{ViewBag.Title = "INFORME DE LA BUENA PRÁCTICA";}
     </div>
 
     <div class="panel panel-info">
@@ -301,7 +304,119 @@
         </div>
     </div>
 
-            }
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">C.	LECCIONES APRENDIDAS</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 text-justify">
+                    <p>Trabaje esta información en una reunión donde puedan participar los diferentes actores involucrados. Luego sintetice y pase en limpio.</p>
+                    <p>Debe reconocer mínimo 3 lecciones aprendidas de la práctica pedagógica o de la gestión en los que más impactó la propuesta. Por ejemplo: logro de aprendizajes, gestión, empleabilidad, vinculación, generación de fondos, etc. Describa qué acciones de la práctica fueron las más efectivas y luego coloque cuales fueron los resultados. Finalmente, en interpretación puntualice qué aprendió en cada aspecto que le podría servir a otra entidad educativa a tomar en cuenta.</p>
+                    <p>Este apartado es el de mayor peso en la evaluación.</p>
+
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion1">C.1.  Lección aprendida 1: Problemática u oportunidad de la Buena Práctica. (Calidad) (max. 1000 caracteres)</label>
+                    @Html.TextArea("ileccion1", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué aspectos nos propusimos mejorar?" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion2">C.2.  Lección aprendida 2: Acciones de la Buena Práctica (Vinculación) (max. 1000 caracteres))</label>
+                    @Html.TextArea("ileccion2", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué hicimos para mejorar este aspecto?" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion3">C.3.  Lección aprendida 3: Resultados (Impacto) (max. 1000 caracteres)</label>
+                    @Html.TextArea("ileccion3", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué logramos en cada aspecto?" })
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ileccion4">C.4.  Lección aprendida 4: Interpretación (Calidad) (max. 1000 caracteres)</label>
+                    @Html.TextArea("ileccion4", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "¿Qué aprendimos que quisiéramos compartir?" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">D. CONCLUSIONES Y RECOMENDACIONES</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="iconclusiones">Conclusiones y recomendaciones (max. 5000 caracteres)</label>
+                    @Html.TextArea("iconclusiones", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Describa los principales hallazgos y oportunidades de mejora." })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">E. REFERENCIAS</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ireferencias">Referencias</label>
+                    @Html.TextArea("ireferencias", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Colocar los autores citados en el Marco Referencial según los requerimientos de la APA. Ejemplo:<br/><u>Recurso físico</u><br/>SUAREZ, Daniel(2004) Manual para la Documentación Narrativa de Experiencias Pedagógicas.Buenos Aires: Laboratorio de Políticas Públicas.<br/><u>Recurso de internet</u><br/>JARA,O. (2014).Sistematización de Experiencias, investigación y evaluación: Aproximaciones desde tres ángulos.Recuperado de: http://educacionglobalresearch.net/wp-conte" })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">F. FUENTES DE VERIFICACIÓN</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12 form-group">
+                    <label for="ifuentes">Fuentes de verificación</label>
+                    @Html.TextArea("ifuentes", null, new { @class = "form-control ckeditor", maxlength = "1000", style = "height: 100px;", placeholder = "Adjuntar en el informe con un link, las evidencias que mejor representen a la buena práctica:<br/> <b>Evidencia 1:</b> Documento que evidencie el desarrollo de la buena práctica (convenios, actas, programación curricular, etc.)<br/> <b>Evidencia 2:</b> Registro fotográfico:  diez (10) fotografías como máximo<br/> <b>Evidencia 3:</b> Un (01) video de máximo 5 minutos, en formato MPG4, AVI " })
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-body">
+
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <input type="submit" name="guardar1" value="Guardar y Enviar" class="btn btn-primary" data-loading-text="Guardando..."/>
+                    <input type="submit" name="guardar2" value="Guardar como borrador" class="btn btn-primary" data-loading-text="Guardando..." />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+}
 
 @section scripts {
     <script type="text/javascript">
@@ -330,9 +445,9 @@
             { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', '-', 'RemoveFormat'] },
             //{ name: 'styles', items: ['FontSize'] },
             //{ name: 'colors', items: ['TextColor'] },
-            { name: 'paragraph', items: ['NumberedList', 'BulletedList', /*'-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'*/] },
+            { name: 'paragraph', items: ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock'] },
             { name: 'links', items: ['Link', 'Unlink'] },
-            { name: 'insert', items: ['Image', 'Table', 'VideoDetector', 'HorizontalRule', 'sketch'] },
+            { name: 'insert', items: ['Image', 'Embed', 'Table', 'HorizontalRule', 'sketch'] },
             // 			'/',
             { name: 'document', items: ['Source'] },
         ];
